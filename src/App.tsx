@@ -71,7 +71,7 @@ export const App: React.FC = () => {
           />
         </div>
 
-        {filteredPeople.length === 0 && (
+        {filteredPeople.length === 0 && query && (
           <div
             className="
             notification
