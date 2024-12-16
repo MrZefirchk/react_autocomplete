@@ -6,13 +6,15 @@ import { Person } from './types/Person';
 import classNames from 'classnames';
 import debounce from 'lodash.debounce';
 
+const DEBOUNCE_DELAY = 300;
+
 export const App: React.FC = () => {
   const [query, setQuery] = useState('');
   const [appliedQuery, setAppliedQuery] = useState('');
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
 
-  const applyQuery = useCallback(debounce(setAppliedQuery, 300), []);
+  const applyQuery = useCallback(debounce(setAppliedQuery, DEBOUNCE_DELAY), []);
 
   const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
